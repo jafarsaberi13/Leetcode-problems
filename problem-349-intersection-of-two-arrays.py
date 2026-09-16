@@ -1,4 +1,4 @@
-solution 1
+#solution 1
 class Solution:
     def intersection(self, nums1: list[int], nums2: list[int]) -> list[int]:
         l = 0 
@@ -21,4 +21,26 @@ class Solution:
                     result.append(tmp)
 
         return result 
+        
+
+# solution 2
+
+class Solution(object):
+    def set_inters(self, set1, set2):
+        return [i for i in set1 if i in set2]
+
+    def intersection(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+
+        set1 = set(nums1)
+        set2 = set(nums2)
+
+        if len(set1) > len(set2):
+            return self.set_inters(set2, set1)
+        else:
+            return self.set_inters(set1, set2)
         
